@@ -37,18 +37,36 @@ def draw_tree():
     draw_branch(70, 7, 35)
     done()
 
+def valide(string):
+    valide = True
+    for letter in string:
+        if (letter != "a" and letter != "t" and letter != "g" and letter != "c"):
+            print("entrez une chaine valide.")
+            valide = False
+            break
+    return valide 
+
+def proportion(chaine, sequence):
+    if valide(chaine) and valide(sequence):
+        print("chaine: ", chaine)
+        print("sequence:", sequence)
+        print("Il y a {0:.2f}% de {1}".format((chaine.count(sequence) / len(chaine)) * 100, sequence))
+    return None
+
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
-    #a = float(input("a: "))
-    #b = float(input("b: "))
-    #c = float(input("c: "))
-    #volumic_mass = float(input("Entrez la masse volumique ici: "))
-    #print(volume_ellipsoide(a, b, c, volumic_mass))
+    a = float(input("a: "))
+    b = float(input("b: "))
+    c = float(input("c: "))
+    volumic_mass = float(input("Entrez la masse volumique ici: "))
+    print(volume_ellipsoide(a, b, c, volumic_mass))
 
-    #sentence = "patrick sebastien is a very young and handsome person"
-    #print(sorted(frequence(sentence).items(), key = lambda x: x[1])[-1])
+    sentence = "patrick sebastien is a very young and handsome person"
+    print(sorted(frequence(sentence).items(), key = lambda x: x[1])[-1])
 
     draw_tree()
     exitonclick()
 
-
+    chaine = input("entrez une chaine valide:")
+    sequence = input("entrez une sequence valide:") 
+    proportion(chaine, sequence)
